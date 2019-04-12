@@ -124,7 +124,7 @@ amplify init
 - Please choose the type of app that you're building __javascript__   
 - What javascript framework are you using __angular__   
 - Source Directory Path: __src__   
-- Distribution Directory Path: __dist__   
+- Distribution Directory Path: __dist/amplify-app__   
 - Build Command: __npm run-script build__   
 - Start Command: __ng serve__
 - Please choose the profile you want to use: __default__
