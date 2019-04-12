@@ -6,12 +6,9 @@ In this workshop we'll learn how to build cloud-enabled web applications with An
 
 ### Topics we'll be covering:
 
-- [Authentication](https://github.com/gsans/aws-amplify-workshop-angular#adding-authentication)
-- [REST API with a Lambda Function](https://github.com/gsans/aws-amplify-workshop-angular#adding-a-rest-api)
 - [GraphQL API with AWS AppSync](https://github.com/gsans/aws-amplify-workshop-angular#adding-a-graphql-api)
-- [Adding Storage with Amazon S3](https://github.com/gsans/aws-amplify-workshop-angular#working-with-storage)
+- [Authentication](https://github.com/gsans/aws-amplify-workshop-angular#adding-authentication)
 - [Hosting](https://github.com/gsans/aws-amplify-workshop-angular#hosting)
-- [Analytics](https://github.com/gsans/aws-amplify-workshop-angular#adding-analytics)
 - [Multiple Environments](https://github.com/gsans/aws-amplify-workshop-react#working-with-multiple-environments)
 - [Deploying via the Amplify Console](https://github.com/gsans/aws-amplify-workshop-angular#amplify-console)
 - [Removing / Deleting Services](https://github.com/gsans/aws-amplify-workshop-angular#removing-services)
