@@ -6,6 +6,7 @@ In this workshop we'll learn how to build cloud-enabled web applications with An
 
 ### Topics we'll be covering:
 
+- [Authentication](https://github.com/gsans/aws-amplify-workshop-angular#adding-authentication)
 - [GraphQL API with AWS AppSync](https://github.com/gsans/aws-amplify-workshop-angular#adding-a-graphql-api)
 - [Authentication](https://github.com/gsans/aws-amplify-workshop-angular#adding-authentication)
 - [Hosting](https://github.com/gsans/aws-amplify-workshop-angular#hosting)
@@ -21,7 +22,7 @@ In this workshop we'll learn how to build cloud-enabled web applications with An
 3. In the left menu, click __Credits__.
 ![](dashboard2.jpg) -->
 
-## Redeeming our AWS Credit   
+## Redeeming your AWS Credit   
 
 1. Visit the [AWS Console](https://console.aws.amazon.com/console).
 2. In the top right corner, under your username, click on __My Account__.
@@ -99,8 +100,7 @@ Now we need to configure the CLI with our credentials:
 amplify configure
 ```
 
-<!-- >> If you'd like to see a video walkthrough of this configuration process, click [here](https://www.youtube.com/watch?v=fWbM5DLh25U).
--->
+> If you'd like to see a video walkthrough of this configuration process, click [here](https://www.youtube.com/watch?v=fWbM5DLh25U).
 
 Here we'll walk through the `amplify configure` setup. Once you've signed in to the AWS console, continue:
 - Specify the AWS Region: __ap-south-1(Mumbai)__
@@ -154,7 +154,7 @@ amplify add auth
 > When prompted choose 
 - Do you want to use default authentication and security configuration?: __Default configuration__
 - How do you want users to be able to sign in when using your Cognito User Pool?: __Username__
-- What attributes are required for signing up? (Press <space> to select, <a> to toggle all, <i> to
+- What attributes are required for signing up? (Press <space> to select, to toggle all, to
 invert selection): __Email__
 
 Now, we'll run the push command and the cloud resources will be created in our AWS account.
@@ -420,7 +420,7 @@ The first thing we'll do is perform a query to fetch data from our API.
 
 To do so, we need to define the query, execute the query, store the data in our state, then list the items in our UI.
 
-> Read more about the __Amplify GraphQL Client__ [here]](https://aws-amplify.github.io/docs/js/api#amplify-graphql-client).
+> Read more about the __Amplify GraphQL Client__ [here](https://aws-amplify.github.io/docs/js/api#amplify-graphql-client).
 
 
 ```js
@@ -466,6 +466,8 @@ export class HomeComponent implements OnInit {
       'description': ['', Validators.required],
       'city': ['', Validators.required]
     });
+    var response = await API.graphql(graphqlOperation(listRestaurants));
+    this.restaurants = (response as any).data.listRestaurants.items;
   } 
   
   public async onCreate(restaurant: any) {
@@ -474,20 +476,14 @@ export class HomeComponent implements OnInit {
         input: restaurant
       }));
       console.log('item created!');
-      await this.syncRestaurants();
+      this.restaurants = [restaurant, ...this.restaurants];
       this.createForm.reset();
     } 
     catch (e) {
       console.log('error creating restaurant...', e);
     }
   }
-
-  async syncRestaurants() {
-    var response = await API.graphql(graphqlOperation(listRestaurants));
-    this.restaurants = (response as any).data.listRestaurants.items;
-  }
 }
-
 ```
 
 ### GraphQL Subscriptions
