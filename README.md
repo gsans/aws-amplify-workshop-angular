@@ -2,7 +2,7 @@
 
 In this workshop we'll learn how to build cloud-enabled web applications with Angular & [AWS Amplify](https://aws-amplify.github.io/).
 
-![](https://imgur.com/IPnnJyf.jpg)
+![](https://i.imgur.com/DwyImqM.png)
 
 ### Topics we'll be covering:
 
