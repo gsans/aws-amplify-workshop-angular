@@ -8,7 +8,6 @@ In this workshop we'll learn how to build cloud-enabled web applications with An
 
 - [Authentication](https://github.com/gsans/aws-amplify-workshop-angular#adding-authentication)
 - [GraphQL API with AWS AppSync](https://github.com/gsans/aws-amplify-workshop-angular#adding-a-graphql-api)
-- [Authentication](https://github.com/gsans/aws-amplify-workshop-angular#adding-authentication)
 - [Hosting](https://github.com/gsans/aws-amplify-workshop-angular#hosting)
 - [Multiple Environments](https://github.com/gsans/aws-amplify-workshop-react#working-with-multiple-environments)
 - [Deploying via the Amplify Console](https://github.com/gsans/aws-amplify-workshop-angular#amplify-console)
