@@ -82,7 +82,7 @@ window.global = window;
 Let's now install the AWS Amplify & AWS Amplify Angular libraries:
 
 ```bash
-npm install --save aws-amplify aws-amplify-angular
+npm install --save @aws-amplify/auth @aws-amplify/api @aws-amplify/ui-angular
 ```
 
 ### Installing the AWS Amplify CLI
@@ -191,21 +191,15 @@ Now, our app is ready to start using our AWS services.
 Add the Amplify Module and Service to `src/app/app.module.ts`:
 
 ```js
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 
 @NgModule({
   imports: [
-    AmplifyAngularModule
+    AmplifyUIAngularModule
   ],
-  providers: [
-    AmplifyService
-  ]
+  providers: []
 });
 ```
-
-### Using Amplify Service
-
-The `AmplifyService` provides access to AWS Amplify core categories via Dependency Injection: auth, analytics, storage, api, cache, pubsub; and authentication state via Observables.
 
 ### Using the Authenticator Component
 
@@ -243,12 +237,13 @@ amplify console auth
 We can access the user's info now that they are signed in by calling `currentAuthenticatedUser()` which returns a Promise.
 
 ```js
-import { AmplifyService } from 'aws-amplify-angular';
+import { Component } from '@angular/core';
+import Auth from '@aws-amplify/auth';
 
 @Component(...)
 export class AppComponent {
   constructor(public amplify: AmplifyService) {
-    amplify.auth().currentAuthenticatedUser().then(console.log)
+    Auth.currentAuthenticatedUser().then(console.log)
   }
 }
 ```
@@ -280,7 +275,7 @@ To do this, we could create a form like:
 We'd also need to have a method that signed up & signed in users. We can us the Auth class to do this. The Auth class has over 30 methods including things like `signUp`, `signIn`, `confirmSignUp`, `confirmSignIn`, & `forgotPassword`. These functions return a promise so they need to be handled asynchronously.
 
 ```js
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 
 export class SignupComponent implements OnInit {
   public signup: FormGroup;
