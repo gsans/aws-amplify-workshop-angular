@@ -179,7 +179,7 @@ The first thing we need to do is to configure our Angular application to be awar
 To configure the app, open __main.ts__ and add the following code below the last import:
 
 ```js
-import Amplify from 'aws-amplify';
+import { Amplify } from '@aws-amplify/core';
 import amplify from './aws-exports';
 Amplify.configure(amplify);
 ```
