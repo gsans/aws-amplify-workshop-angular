@@ -118,7 +118,7 @@ Here we'll walk through the `amplify configure` setup. Once you've signed in to 
 amplify init
 ```
 
-- Enter a name for the project: __amplify-app__
+- Enter a name for the project: __amplifyapp__
 - Enter a name for the environment: __dev__
 - Choose your default editor: __Visual Studio Code__   
 - Please choose the type of app that you're building __javascript__   
